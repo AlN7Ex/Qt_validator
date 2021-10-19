@@ -1,11 +1,12 @@
-#include "namevalidator.h"
+#include "MyValidator.h"
+#include "MyWidget.h"
 
 MyWidget::MyWidget(QWidget *parent)
     : QWidget(parent),
       plbl              (new QLabel("&Name (The digits will not be accepted!):", this)),
       ptxt              (new QLineEdit(this)),
       pvboxlayout       (new QVBoxLayout(this)),
-      pNameValidator    (new NameValidator(ptxt))
+      pNameValidator    (new NameValidator(this))
 {
       ptxt->setValidator(pNameValidator);
       plbl->setBuddy(ptxt);
@@ -17,24 +18,5 @@ MyWidget::MyWidget(QWidget *parent)
 }
 
 MyWidget::~MyWidget()
-{
-}
-
-NameValidator::NameValidator(QObject *parent)
-    : QValidator(parent)
-{
-}
-
-QValidator::State NameValidator::validate(QString &str, int &pos) const
-{
-    QRegExp rxp = QRegExp("[0-9]");
-    if (str.contains(rxp))
-    {
-        return Invalid;
-    }
-    return Acceptable;
-}
-
-NameValidator::~NameValidator()
 {
 }

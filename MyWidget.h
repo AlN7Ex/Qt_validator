@@ -1,5 +1,5 @@
-#ifndef NAMEVALIDATOR_H
-#define NAMEVALIDATOR_H
+#ifndef MYWIDGET_H
+#define MYWIDGET_H
 
 #include <QWidget>
 #include <QValidator>
@@ -24,15 +24,4 @@ private:
      NameValidator   * const pNameValidator;
 };
 
-class NameValidator : public QValidator
-{
-    Q_OBJECT
-
-public:
-    explicit NameValidator(QObject *parent = nullptr);
-    virtual State validate(QString & str, int & pos) const override;
-    ~NameValidator();
-
-
-};
-#endif // NAMEVALIDATOR_H
+#endif // MYWIDGET_H
